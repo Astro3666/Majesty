@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Majisty · Omani Bukhoor, Frankincense and Oud</title>
+<meta name="description" content="Majisty is an Omani fragrance house: affordable bukhoor, high-quality male and female frankincense gum, Omani-blend oud oils and the Journey oud vessel.">
+<meta name="theme-color" content="#120d0b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Majisty · Three Cultures. One Journey.">
+<meta property="og:description" content="Bukhoor, frankincense and Omani oud, and the Journey vessel wrapped in Al Sadu weaving.">
+<meta property="og:image" content="assets/journey-vessel.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23120d0b'/%3E%3Cpath d='M32 14c-3 0-5 2-5 5v5c-9 4-15 12-15 21 0 4 3 6 6 6h28c3 0 6-2 6-6 0-9-6-17-15-21v-5c0-3-2-5-5-5z' fill='%23a31f27'/%3E%3Crect x='26' y='10' width='12' height='9' rx='2' fill='%23d1a656'/%3E%3C/svg%3E">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;600&family=Reem+Kufi:wght@500;600&display=swap">
+<style>
+/* Layout: a pinned 3D stage that opens the vessel on scroll, then three product rooms divided by Al Sadu woven bands. Deliberately one dark, smoky look. */
+:root {
+  color-scheme: dark;
+  --night: #120d0b;        /* smoke-dark ground */
+  --night-2: #1b1411;      /* raised surface */
+  --line: #3a2c25;         /* hairlines */
+  --cream: #efe4cf;        /* Sadu cream, body text */
+  --muted: #b5a690;        /* secondary text */
+  --red: #a31f27;          /* Sadu red */
+  --green: #2b5a43;        /* Sadu green */
+  --gold: #d1a656;         /* cap brass, the one accent */
+  --display: "Marcellus", "Cormorant Garamond", Georgia, serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --arabic: "Reem Kufi", "Noto Kufi Arabic", "Geeza Pro", sans-serif;
+}
+html { background: var(--night); }
+body { background: var(--night); color: var(--cream); font: 400 16px/1.6 var(--body); overflow-x: hidden; }
+* { box-sizing: border-box; }
+a { color: var(--gold); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+
+/* Top bar */
+.bar { position: fixed; z-index: 20; top: 0; left: 0; right: 0; padding-top: env(safe-area-inset-top, 0px);
+  background: linear-gradient(var(--night), transparent); pointer-events: none; }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
+.mark { font-family: var(--display); font-size: 22px; letter-spacing: .28em; text-transform: uppercase; color: var(--cream); text-decoration: none; pointer-events: auto; }
+.mark span { color: var(--gold); }
+.bar nav { display: flex; gap: 22px; pointer-events: auto; }
+.bar nav a { color: var(--muted); text-decoration: none; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
+.bar nav a:hover { color: var(--cream); }
+@media (max-width: 640px) { .bar nav { display: none; } }
+
+/* Pinned 3D journey */
+.journey { position: relative; height: 420vh; }
+.stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+#gl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.panel { position: absolute; left: max(20px, env(safe-area-inset-left, 0px)); top: 50%; transform: translateY(-50%); width: min(430px, 40vw);
+  transition: opacity .5s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
+.panel.off { opacity: 0; transform: translateY(calc(-50% + 18px)); pointer-events: none; }
+.eyebrow { font-size: 12px; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); margin: 0 0 14px; }
+.panel h1, .panel h2 { font-family: var(--display); font-weight: 400; line-height: 1.04; margin: 0 0 18px; text-wrap: balance; }
+.panel h1 { font-size: clamp(42px, 6.4vw, 84px); }
+.panel h2 { font-size: clamp(30px, 3.6vw, 46px); }
+.panel p { color: var(--muted); margin: 0 0 14px; max-width: 36ch; }
+.origins { display: flex; gap: 12px; align-items: center; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--cream); margin-bottom: 18px; }
+.origins i { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+.cue { position: absolute; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); transition: opacity .4s; }
+.cue::after { content: ""; display: block; width: 1px; height: 34px; margin: 10px auto 0; background: linear-gradient(var(--gold), transparent); animation: cue 2.4s ease-in-out infinite; transform-origin: top; }
+@keyframes cue { 0%,100% { transform: scaleY(.3); opacity: .4 } 50% { transform: scaleY(1); opacity: 1 } }
+
+.labels { position: absolute; inset: 0; pointer-events: none; }
+.tag { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 10px; opacity: 0; white-space: nowrap; will-change: transform; }
+.tag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--gold); background: rgba(209,166,86,.25); flex: none; }
+.tag b { font-weight: 500; font-size: 13px; color: var(--cream); display: block; }
+.tag small { font-size: 11px; color: var(--muted); display: block; }
+.tag .line { width: 34px; height: 1px; background: var(--gold); opacity: .6; }
+@media (max-width: 760px) {
+  .stage::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 46%; background: linear-gradient(transparent, rgba(18,13,11,.92) 55%); pointer-events: none; }
+  .panel { z-index: 1;  top: auto; bottom: calc(70px + env(safe-area-inset-bottom, 0px)); transform: none; width: auto; right: max(20px, env(safe-area-inset-right, 0px)); }
+  .panel.off { transform: translateY(18px); }
+  .panel h1 { font-size: 44px; }
+  .panel p { font-size: 15px; }
+  .tag .line { width: 14px; }
+  .tag small { display: none; }
+}
+
+/* Al Sadu divider band */
+.sadu { height: 26px; background:
+  repeating-linear-gradient(90deg, transparent 0 14px, var(--night) 14px 15px),
+  linear-gradient(var(--red) 0 4px, var(--cream) 4px 6px, var(--night) 6px 8px, transparent 8px calc(100% - 8px), var(--night) calc(100% - 8px) calc(100% - 6px), var(--cream) calc(100% - 6px) calc(100% - 4px), var(--red) calc(100% - 4px)),
+  repeating-linear-gradient(135deg, var(--red) 0 7px, var(--cream) 7px 10px, var(--green) 10px 17px, var(--cream) 17px 20px);
+}
+
+/* Product rooms */
+section.room { padding-block: clamp(72px, 11vw, 130px); position: relative; }
+section.room:nth-of-type(even) { background: var(--night-2); }
+.room-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+.room-grid > * { min-width: 0; }
+@media (max-width: 820px) { .room-grid { grid-template-columns: 1fr; } .room-grid .art { order: -1; } }
+.room h2 { font-family: var(--display); font-weight: 400; font-size: clamp(38px, 5vw, 64px); line-height: 1; margin: 0 0 6px; }
+.ar { font-family: var(--arabic); font-size: clamp(22px, 2.6vw, 30px); color: var(--gold); margin: 0 0 22px; direction: rtl; text-align: left; }
+.room .lede { color: var(--muted); max-width: 46ch; margin: 0 0 30px; font-size: 17px; }
+.opts { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.opt { font: 500 15px/1 var(--body); color: var(--cream); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 12px 20px; cursor: pointer; font-variant-numeric: tabular-nums; transition: border-color .2s, background .2s, color .2s; }
+.opt:hover { border-color: var(--muted); }
+.opt[aria-pressed="true"] { background: var(--cream); color: var(--night); border-color: var(--cream); }
+.price { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 18px; }
+.price .amt { font-family: var(--display); font-size: 30px; font-variant-numeric: tabular-nums; }
+.price .note { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); border: 1px dashed var(--gold); border-radius: 4px; padding: 3px 8px; }
+.price .sel { color: var(--muted); font-size: 14px; }
+
+/* Bukhoor tin */
+.art { position: relative; display: grid; place-items: end center; min-height: 380px; }
+.plinth { position: absolute; bottom: 30px; width: 70%; height: 40px; border-radius: 50%; background: radial-gradient(closest-side, rgba(0,0,0,.6), transparent); }
+.tin { position: relative; width: 230px; height: 200px; margin-bottom: 48px; transform-origin: 50% 100%; transition: transform .7s cubic-bezier(.34,1.56,.64,1); }
+.tin .lid { position: absolute; left: -6px; right: -6px; top: 0; height: 34px; border-radius: 10px 10px 6px 6px;
+  background: linear-gradient(90deg, #6b5124, var(--gold) 30%, #f2d79b 45%, var(--gold) 60%, #5d4520); box-shadow: 0 4px 10px rgba(0,0,0,.4); }
+.tin .body { position: absolute; left: 0; right: 0; top: 30px; bottom: 0; border-radius: 0 0 16px 16px; overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.55), transparent 35%, rgba(255,255,255,.08) 48%, transparent 60%, rgba(0,0,0,.6)),
+    linear-gradient(var(--red) 0 6px, var(--cream) 6px 9px, var(--night) 9px 13px, var(--green) 13px 21px, var(--cream) 21px 24px, transparent 24px calc(100% - 24px), var(--cream) calc(100% - 24px) calc(100% - 21px), var(--green) calc(100% - 21px) calc(100% - 13px), var(--night) calc(100% - 13px) calc(100% - 9px), var(--red) calc(100% - 9px)),
+    linear-gradient(135deg, var(--red) 25%, transparent 25%) -12px 0 / 24px 24px,
+    linear-gradient(225deg, var(--red) 25%, transparent 25%) -12px 0 / 24px 24px,
+    linear-gradient(315deg, var(--red) 25%, transparent 25%) 0 0 / 24px 24px,
+    linear-gradient(45deg, var(--red) 25%, transparent 25%) 0 0 / 24px 24px,
+    var(--cream); }
+.tin .body::after { content: "MAJISTY · بخور"; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); background: var(--night); color: var(--cream);
+  font: 500 13px var(--body); letter-spacing: .2em; padding: 10px 16px; white-space: nowrap; border: 1px solid var(--gold); }
+.tin .wt { position: absolute; right: -10px; bottom: 16px; background: var(--gold); color: var(--night); font: 600 13px var(--body); padding: 6px 10px; border-radius: 3px; font-variant-numeric: tabular-nums; }
+.smoke { position: absolute; bottom: 220px; left: 50%; width: 160px; height: 200px; transform: translateX(-50%); pointer-events: none; }
+.smoke i { position: absolute; bottom: 0; left: 50%; width: 46px; height: 46px; border-radius: 50%; background: radial-gradient(closest-side, rgba(239,228,207,.22), transparent); animation: rise 7s infinite ease-out; }
+.smoke i:nth-child(2) { animation-delay: -2.3s; margin-left: -20px; animation-duration: 8.2s; }
+.smoke i:nth-child(3) { animation-delay: -4.6s; margin-left: 14px; animation-duration: 6.4s; }
+.smoke i:nth-child(4) { animation-delay: -5.8s; margin-left: -6px; animation-duration: 9s; }
+@keyframes rise { 0% { transform: translate(-50%, 0) scale(.6); opacity: 0 } 15% { opacity: 1 } 100% { transform: translate(calc(-50% + 30px), -200px) scale(2.8); opacity: 0 } }
+
+/* Frankincense */
+.grades { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 480px) { .grades { grid-template-columns: 1fr; } }
+.grade { background: var(--night); border: 1px solid var(--line); border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+section.room:nth-of-type(odd) .grade { background: var(--night-2); }
+.grade h3 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 26px; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.grade h3 span { font-family: var(--arabic); color: var(--gold); font-size: 20px; }
+.grade p { margin: 0; color: var(--muted); font-size: 15px; }
+.grade .price { margin-top: auto; }
+.grade .price .amt { font-size: 24px; }
+.resin { position: relative; height: 320px; width: 100%; }
+.tear { position: absolute; border-radius: 50% 50% 46% 54% / 60% 58% 42% 40%;
+  background: radial-gradient(circle at 35% 30%, #fff6d8 0 6%, #f2d9a0 18%, #d9a958 52%, #9c6a2a 90%);
+  box-shadow: inset -6px -8px 14px rgba(90,50,10,.45), 0 10px 20px rgba(0,0,0,.45); animation: drift 9s ease-in-out infinite; }
+@keyframes drift { 0%,100% { transform: translateY(0) rotate(var(--r)) } 50% { transform: translateY(-10px) rotate(calc(var(--r) + 6deg)) } }
+
+/* Oud oils */
+.vials { display: flex; align-items: flex-end; justify-content: center; gap: clamp(18px, 4vw, 44px); height: 340px; padding-bottom: 40px; }
+.vial { background: none; border: 0; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 12px; color: var(--muted); font: 500 14px var(--body); font-variant-numeric: tabular-nums; transition: transform .5s cubic-bezier(.34,1.56,.64,1), color .3s; }
+.vial svg { display: block; filter: drop-shadow(0 12px 18px rgba(0,0,0,.5)); }
+.vial[aria-pressed="true"] { color: var(--gold); transform: translateY(-14px); }
+
+/* Flagship + contact */
+.flag { text-align: left; }
+.flag .room-grid { align-items: start; }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.facts li { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+.facts li:last-child { border-bottom: 1px solid var(--line); }
+.facts b { font-weight: 500; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); padding-top: 3px; }
+.facts span { color: var(--cream); }
+.contact { display: grid; gap: 10px; margin-top: 8px; }
+.contact div { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); padding: 12px 0; flex-wrap: wrap; }
+.contact span:first-child { color: var(--muted); }
+.ph { color: var(--gold); border-bottom: 1px dashed var(--gold); }
+footer { padding-block: 40px calc(96px + env(safe-area-inset-bottom, 0px)); color: var(--muted); font-size: 13px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+/* Journey rail */
+.rail { position: absolute; right: max(24px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: r; }
+.rail li { counter-increment: r; display: flex; align-items: center; gap: 10px; justify-content: flex-end; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); opacity: .35; }
+.rail li::after { content: ""; width: 22px; height: 1px; background: currentColor; }
+.rail li.on { color: var(--gold); opacity: 1; }
+@media (max-width: 760px) { .rail, .cue { display: none; } .opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(64px, 1fr)); } }
+
+/* 3D tilt on product art */
+.art { transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .4s ease-out; transform-style: preserve-3d; }
+
+/* Add to order */
+.add { margin-top: 18px; font: 600 14px/1 var(--body); letter-spacing: .08em; color: var(--night); background: var(--gold); border: 0; border-radius: 999px; padding: 14px 22px; cursor: pointer; transition: transform .2s, background .2s; }
+.add:hover { background: #e2bb72; }
+.add:active { transform: scale(.97); }
+.add.done { background: var(--cream); }
+.grade .add { margin-top: 4px; align-self: flex-start; }
+
+/* Flagship photo */
+.photo { margin: 0; justify-self: center; position: relative; }
+.photo img { display: block; width: min(360px, 100%); height: auto; border-radius: 6px; box-shadow: 0 30px 60px rgba(0,0,0,.55); border: 1px solid var(--line); }
+
+/* Order list */
+.order-grid { align-items: start; }
+.h2-sm { font-size: clamp(30px, 3.4vw, 42px) !important; }
+.cart { list-style: none; margin: 0 0 8px; padding: 0; counter-reset: c; }
+.cart li { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+.cart li:last-child { border-bottom: 1px solid var(--line); }
+.cart .name { min-width: 0; }
+.qty { display: flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+.qty button, .rm { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--cream); cursor: pointer; font: 500 16px/1 var(--body); }
+.qty button:hover, .rm:hover { border-color: var(--muted); }
+.qty span { min-width: 22px; text-align: center; }
+.rm { color: var(--muted); }
+.empty { color: var(--muted); font-size: 15px; margin: 0 0 8px; }
+.cart-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 18px; }
+.opt.primary { background: var(--gold); color: var(--night); border-color: var(--gold); font-weight: 600; }
+.opt:disabled { opacity: .4; cursor: not-allowed; }
+.toast { color: var(--gold); font-size: 14px; }
+a.opt { text-decoration: none; display: inline-flex; align-items: center; }
+.total { display: flex; justify-content: space-between; font-family: var(--display); font-size: 22px; margin: 6px 0 0; font-variant-numeric: tabular-nums; }
+.cart .each { color: var(--muted); font-size: 13px; display: block; }
+.contact a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); }
+/* No-WebGL fallback: show the real photo instead of the 3D scene */
+.stage.nogl #gl, .stage.nogl .labels, .stage.nogl .rail { display: none; }
+.poster { position: absolute; right: 7%; top: 50%; transform: translateY(-50%); height: min(78vh, 620px); width: auto; border-radius: 6px; box-shadow: 0 30px 60px rgba(0,0,0,.55); }
+@media (max-width: 760px) { .poster { left: 50%; right: auto; top: 80px; transform: translateX(-50%); height: 50vh; } }
+.order-text { width: 100%; min-height: 120px; margin-top: 14px; background: var(--night); color: var(--cream); border: 1px solid var(--line); border-radius: 6px; padding: 12px; font: 14px/1.5 var(--body); }
+.pill { position: fixed; z-index: 30; right: calc(max(16px, env(safe-area-inset-right, 0px)) + 4px); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); background: var(--gold); color: var(--night); text-decoration: none; font: 600 14px/1 var(--body); padding: 13px 18px; border-radius: 999px; box-shadow: 0 10px 30px rgba(0,0,0,.5); display: flex; gap: 10px; align-items: center; }
+.pill[hidden], .order-text[hidden], .empty[hidden] { display: none; }
+.pill b { background: var(--night); color: var(--gold); border-radius: 999px; min-width: 24px; height: 24px; display: grid; place-items: center; font-size: 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .art { transition: none; transform: none; }
+  .smoke i, .tear, .cue::after { animation: none; }
+  .panel, .tin, .vial { transition: none; }
+}
+</style>
+</head>
+<body>
+<noscript><p style="padding:20px;color:#efe4cf;background:#120d0b">Turn on JavaScript to see the 3D vessel and order list.</p></noscript>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top">Majis<span>t</span>y</a>
+    <nav aria-label="Sections">
+      <a href="#bukhoor">Bukhoor</a>
+      <a href="#frankincense">Frankincense</a>
+      <a href="#oud">Oud oils</a>
+      <a href="#order">Order</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="journey" id="journey">
+    <div class="stage">
+      <canvas id="gl" aria-label="3D model of the Majisty oud vessel, wrapped in Al Sadu weaving with a brass cap"></canvas>
+      <div class="labels" id="labels" aria-hidden="true">
+        <div class="tag" data-part="cap"><span class="line"></span><div><b>Decorative brass cap</b><small>Loop for lanyard or attachment</small></div></div>
+        <div class="tag" data-part="ring"><span class="line"></span><div><b>O-ring seal</b><small>Seals the cap so the scent stays in</small></div></div>
+        <div class="tag" data-part="cover"><span class="line"></span><div><b>Al Sadu woven cover</b><small>Attached, no loose fibres</small></div></div>
+        <div class="tag" data-part="shell"><span class="line"></span><div><b>Composite outer shell</b><small>Protects the inner vial</small></div></div>
+        <div class="tag" data-part="vial"><span class="line"></span><div><b>Inner sealed vial</b><small>Filled with oud chips</small></div></div>
+      </div>
+
+      <div class="panel" data-from="0" data-to="0.13">
+        <p class="eyebrow">Omani fragrance house</p>
+        <h1>Three Cultures. One Journey.</h1>
+        <div class="origins">Ethiopia <i></i> UAE <i></i> Oman</div>
+        <p>A space-ready oud container inspired by Ethiopian craftsmanship, UAE Al Sadu weaving and Omani fragrance heritage.</p>
+      </div>
+      <div class="panel off" data-from="0.2" data-to="0.5">
+        <p class="eyebrow">Open the vessel</p>
+        <h2>Five layers, made to travel</h2>
+        <p>The brass cap lifts away from its O-ring seal. The Al Sadu cover opens around a composite shell that protects what is inside.</p>
+      </div>
+      <div class="panel off" data-from="0.56" data-to="0.82">
+        <p class="eyebrow">At the heart</p>
+        <h2>A sealed vial of oud chips</h2>
+        <p>Inside the shell sits a glass vial of oud wood, sealed so its scent stays rich wherever the vessel goes.</p>
+      </div>
+      <div class="panel off" data-from="0.88" data-to="1.01">
+        <p class="eyebrow">The Majisty range</p>
+        <h2>Bukhoor, frankincense and Omani oud</h2>
+        <p>The same care runs through every jar of bukhoor, every grade of frankincense and every bottle of oud oil.</p>
+      </div>
+      <div class="cue" id="cue">Scroll</div>
+      <ol class="rail" id="rail" aria-hidden="true"><li>Cap</li><li>Seal</li><li>Cover</li><li>Shell</li><li>Vial</li></ol>
+    </div>
+  </div>
+
+  <div class="sadu" role="presentation"></div>
+
+  <section class="room" id="bukhoor">
+    <div class="wrap room-grid">
+      <div>
+        <p class="eyebrow">Everyday fragrance</p>
+        <h2>Bukhoor</h2>
+        <p class="ar" lang="ar">بخور</p>
+        <p class="lede">Affordable bukhoor for every day and every guest. Pick the size that suits your home, from a small trial tin to a family supply.</p>
+        <div class="opts" role="group" aria-label="Bukhoor size" id="bk-opts">
+          <button class="opt" id="bk-50" data-g="50" aria-pressed="false">50 g</button>
+          <button class="opt" id="bk-100" data-g="100" aria-pressed="true">100 g</button>
+          <button class="opt" id="bk-200" data-g="200" aria-pressed="false">200 g</button>
+          <button class="opt" id="bk-400" data-g="400" aria-pressed="false">400 g</button>
+        </div>
+        <div class="price"><span class="amt" data-price="bukhoor">OMR __.___</span><span class="sel" id="bk-sel">for 100 g</span><span class="note">Price to be set</span></div>
+        <button class="add" id="add-bk" data-add="bukhoor">Add to order</button>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="plinth"></div>
+        <div class="smoke"><i></i><i></i><i></i><i></i></div>
+        <div class="tin" id="tin"><div class="lid"></div><div class="body"></div><span class="wt" id="tin-wt">100 g</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sadu" role="presentation"></div>
+
+  <section class="room" id="frankincense">
+    <div class="wrap room-grid">
+      <div class="art" aria-hidden="true">
+        <div class="resin" id="resin"></div>
+      </div>
+      <div>
+        <p class="eyebrow">High-quality gum</p>
+        <h2>Frankincense</h2>
+        <p class="ar" lang="ar">لبان</p>
+        <p class="lede">High-quality frankincense gum, offered in two grades: male and female.</p>
+        <div class="grades">
+          <article class="grade">
+            <h3>Male <span lang="ar">ذكر</span></h3>
+            <p>High-quality male frankincense gum.</p>
+            <div class="price"><span class="amt" data-price="frankincense:male">OMR __.___</span><span class="note">Price to be set</span></div>
+            <button class="add" id="add-fm" data-add="Frankincense, male grade" data-key="frankincense:male">Add to order</button>
+          </article>
+          <article class="grade">
+            <h3>Female <span lang="ar">أنثى</span></h3>
+            <p>High-quality female frankincense gum.</p>
+            <div class="price"><span class="amt" data-price="frankincense:female">OMR __.___</span><span class="note">Price to be set</span></div>
+            <button class="add" id="add-ff" data-add="Frankincense, female grade" data-key="frankincense:female">Add to order</button>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sadu" role="presentation"></div>
+
+  <section class="room" id="oud">
+    <div class="wrap room-grid">
+      <div>
+        <p class="eyebrow">Omani blend</p>
+        <h2>Oud fragrance oil</h2>
+        <p class="ar" lang="ar">دهن العود</p>
+        <p class="lede">Our own Omani blend of oud fragrance oil, in three bottle sizes to suit a gift, a handbag or a long season of use.</p>
+        <div class="opts" role="group" aria-label="Oud oil size" id="oud-opts">
+          <button class="opt" id="oud-3" data-ml="3" aria-pressed="false">3 ml</button>
+          <button class="opt" id="oud-6" data-ml="6" aria-pressed="true">6 ml</button>
+          <button class="opt" id="oud-12" data-ml="12" aria-pressed="false">12 ml</button>
+        </div>
+        <div class="price"><span class="amt" data-price="oud">OMR __.___</span><span class="sel" id="oud-sel">for 6 ml</span><span class="note">Price to be set</span></div>
+        <button class="add" id="add-oud" data-add="oud">Add to order</button>
+      </div>
+      <div class="art">
+        <div class="plinth" aria-hidden="true"></div>
+        <div class="vials" id="vials" role="group" aria-label="Choose a bottle size"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sadu" role="presentation"></div>
+
+  <section class="room flag" id="vessel">
+    <div class="wrap room-grid">
+      <figure class="photo">
+        <img src="assets/journey-vessel.jpg" alt="The Majisty Journey vessel: a gourd-shaped oud container wrapped in red, cream and green Al Sadu weaving, with a brass cap and a braided lanyard" width="344" height="518">
+      </figure>
+      <div>
+        <p class="eyebrow">Flagship</p>
+        <h2>The Journey vessel</h2>
+        <p class="ar" lang="ar">ثلاث ثقافات، رحلة واحدة</p>
+        <p class="lede">A travel container for oud that brings together three crafts: Ethiopian craftsmanship, Emirati Al Sadu weaving and Omani fragrance heritage.</p>
+        <ul class="facts">
+          <li><b>Cap</b><span>Engraved brass with lanyard loop</span></li>
+          <li><b>Seal</b><span>Rubber O-ring</span></li>
+          <li><b>Shell</b><span>Composite material</span></li>
+          <li><b>Cover</b><span>Al Sadu weave in red, cream and green, attached with no loose fibres</span></li>
+          <li><b>Inside</b><span>Sealed vial of oud chips</span></li>
+        </ul>
+        <div class="price"><span class="amt" data-price="vessel">OMR __.___</span><span class="note">Price to be set</span></div>
+        <button class="add" id="add-vessel" data-add="Journey vessel" data-key="vessel">Add to order</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="sadu" role="presentation"></div>
+
+  <section class="room" id="order">
+    <div class="wrap room-grid order-grid">
+      <div>
+        <p class="eyebrow">Order</p>
+        <h2>Your order</h2>
+        <p class="ar" lang="ar">طلبك</p>
+        <p class="lede">Add products from each section, then send the list to us on WhatsApp. We will reply to confirm your order and delivery.</p>
+        <ol class="cart" id="cart" aria-live="polite"></ol>
+        <p class="total" id="cart-total" hidden></p>
+        <p class="empty" id="cart-empty">Nothing added yet. Use <em>Add to order</em> on any product above.</p>
+        <div class="cart-actions">
+          <a class="opt primary" id="wa-order" href="#" target="_blank" rel="noopener" hidden>Send on WhatsApp</a>
+          <button class="opt primary" id="copy-order" disabled>Copy order message</button>
+          <button class="opt" id="clear-order" disabled>Clear</button>
+          <span class="toast" id="toast" role="status"></span>
+        </div>
+        <textarea id="order-text" class="order-text" readonly aria-label="Order message" hidden></textarea>
+      </div>
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2 class="h2-sm">Talk to us</h2>
+        <p class="lede">Send your order or any question and we will confirm price and delivery.</p>
+        <div class="contact">
+          <div><span>WhatsApp</span><span class="ph" id="c-wa">+968 ____ ____</span></div>
+          <div><span>Instagram</span><span class="ph" id="c-ig">@majisty</span></div>
+          <div><span>Email</span><span class="ph" id="c-em">hello@majisty.om</span></div>
+          <div><span>Price list</span><span class="ph">Coming soon</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <a class="pill" id="pill" href="#order" hidden>Your order <b id="pill-n">0</b></a>
+</main>
+
+<footer>
+  <div class="wrap"><span>© Majisty, Oman</span><span>Bukhoor · Frankincense · Oud</span></div>
+</footer>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+
+<script>
+/* ======================================================================
+   EDIT HERE: prices in Omani rials and your contact details.
+   Leave a price as null to show "Price to be set" on the site.
+   ====================================================================== */
+const MAJISTY = {
+  prices: {
+    bukhoor: { 50: null, 100: null, 200: null, 400: null },
+    frankincense: { male: null, female: null },
+    oud: { 3: null, 6: null, 12: null },
+    vessel: null
+  },
+  whatsapp: '',   // digits only with country code, e.g. '96891234567'
+  instagram: '',  // handle without @, e.g. 'majisty'
+  email: ''       // e.g. 'hello@majisty.om'
+};
+
+/* No-WebGL fallback: if the 3D scene cannot start, show the product photo */
+window.majistyNoGL = function () {
+  const st = document.querySelector('.stage');
+  if (!st || st.classList.contains('nogl') || window.__majistyGL) return;
+  st.classList.add('nogl');
+  const src = document.querySelector('.photo img');
+  if (src) { const img = src.cloneNode(); img.className = 'poster'; img.alt = ''; st.prepend(img); }
+};
+addEventListener('error', e => { if (e.target && e.target.tagName === 'SCRIPT') window.majistyNoGL(); }, true);
+setTimeout(() => window.majistyNoGL(), 10000);
+
+/* ---------- Product rooms (plain DOM) ---------- */
+(function () {
+  const P = MAJISTY.prices;
+  const priceOf = key => {
+    if (!key) return null;
+    const [a, b] = key.split(':');
+    const v = b === undefined ? P[a] : (P[a] || {})[b];
+    return typeof v === 'number' ? v : null;
+  };
+  const fmt = v => v == null ? 'OMR __.___' : 'OMR ' + v.toFixed(3);
+  const selKey = name => name === 'bukhoor' ? 'bukhoor:' + document.querySelector('#bk-opts [aria-pressed="true"]').dataset.g
+    : name === 'oud' ? 'oud:' + document.querySelector('#oud-opts [aria-pressed="true"]').dataset.ml : name;
+  function refreshPrices() {
+    document.querySelectorAll('.amt[data-price]').forEach(el => {
+      const v = priceOf(selKey(el.dataset.price));
+      el.textContent = fmt(v);
+      const note = el.parentElement.querySelector('.note');
+      if (note) note.hidden = v != null;
+    });
+  }
+  window.majistyPrices = { priceOf, fmt, selKey, refreshPrices };
+  document.addEventListener('click', e => { if (e.target.closest('#bk-opts, #oud-opts, #vials')) refreshPrices(); });
+
+  // Contact details
+  const setLink = (id, text, href) => { const el = document.getElementById(id); const a = document.createElement('a'); a.href = href; a.textContent = text; if (href.startsWith('http')) { a.target = '_blank'; a.rel = 'noopener'; } el.replaceWith(a); };
+  if (MAJISTY.whatsapp) setLink('c-wa', '+' + MAJISTY.whatsapp, 'https://wa.me/' + MAJISTY.whatsapp);
+  if (MAJISTY.instagram) setLink('c-ig', '@' + MAJISTY.instagram, 'https://instagram.com/' + MAJISTY.instagram);
+  if (MAJISTY.email) { const el = document.getElementById('c-em'); el.textContent = MAJISTY.email; el.classList.remove('ph'); }
+
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Bukhoor sizes
+  const scale = { 50: .62, 100: .76, 200: .9, 400: 1.06 };
+  const tin = document.getElementById('tin'), wt = document.getElementById('tin-wt'), bsel = document.getElementById('bk-sel');
+  document.querySelectorAll('#bk-opts .opt').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('#bk-opts .opt').forEach(o => o.setAttribute('aria-pressed', o === b));
+    const g = b.dataset.g;
+    tin.style.transform = 'scale(' + scale[g] + ')';
+    wt.textContent = g + ' g'; bsel.textContent = 'for ' + g + ' g';
+  }));
+  tin.style.transform = 'scale(' + scale[100] + ')';
+
+  // Frankincense tears (seeded so every load matches)
+  let s = 7; const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
+  const resin = document.getElementById('resin');
+  for (let i = 0; i < 16; i++) {
+    const t = document.createElement('i'); t.className = 'tear';
+    const w = 34 + rnd() * 58;
+    t.style.width = w + 'px'; t.style.height = w * (0.75 + rnd() * 0.5) + 'px';
+    t.style.left = (6 + rnd() * 76) + '%'; t.style.top = (8 + rnd() * 70) + '%';
+    t.style.setProperty('--r', (rnd() * 80 - 40) + 'deg');
+    t.style.animationDelay = (-rnd() * 9) + 's'; t.style.animationDuration = (7 + rnd() * 5) + 's';
+    t.style.opacity = 0.75 + rnd() * 0.25;
+    resin.appendChild(t);
+  }
+
+  // Oud vials drawn to volume
+  const vials = document.getElementById('vials'), osel = document.getElementById('oud-sel');
+  const sizes = [3, 6, 12];
+  sizes.forEach(ml => {
+    const h = 90 + Math.cbrt(ml / 3) * 60, w = h * 0.42;
+    const b = document.createElement('button'); b.className = 'vial'; b.id = 'vial-' + ml; b.dataset.ml = ml;
+    b.setAttribute('aria-pressed', ml === 6); b.setAttribute('aria-label', ml + ' millilitre bottle');
+    const neck = w * 0.34, capH = h * 0.22, bodyH = h - capH - 8;
+    b.innerHTML = `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+      <defs><linearGradient id="g${ml}" x1="0" x2="1"><stop offset="0" stop-color="#2a1608"/><stop offset=".35" stop-color="#7a4416"/><stop offset=".5" stop-color="#b8752e"/><stop offset=".7" stop-color="#6a3a12"/><stop offset="1" stop-color="#1e1006"/></linearGradient>
+      <linearGradient id="c${ml}" x1="0" x2="1"><stop offset="0" stop-color="#6b5124"/><stop offset=".4" stop-color="#d1a656"/><stop offset=".55" stop-color="#f2d79b"/><stop offset="1" stop-color="#5d4520"/></linearGradient></defs>
+      <rect x="${(w - neck) / 2}" y="0" width="${neck}" height="${capH}" rx="3" fill="url(#c${ml})"/>
+      <rect x="${(w - neck * 1.2) / 2}" y="${capH}" width="${neck * 1.2}" height="8" fill="#2a1d12"/>
+      <rect x="1" y="${capH + 8}" width="${w - 2}" height="${bodyH - 1}" rx="${w * 0.18}" fill="url(#g${ml})" stroke="rgba(239,228,207,.35)"/>
+      <rect x="${w * 0.18}" y="${capH + 8 + bodyH * 0.38}" width="${w * 0.64}" height="${bodyH * 0.3}" fill="#120d0b" stroke="#d1a656" stroke-width=".8"/>
+      <text x="${w / 2}" y="${capH + 8 + bodyH * 0.56}" text-anchor="middle" font-family="Figtree, sans-serif" font-size="${Math.max(7, w * 0.13)}" fill="#efe4cf" letter-spacing="1">OUD</text>
+      <rect x="${w * 0.14}" y="${capH + 14}" width="${w * 0.07}" height="${bodyH * 0.8}" rx="2" fill="rgba(255,240,210,.22)"/>
+    </svg><span>${ml} ml</span>`;
+    vials.appendChild(b);
+  });
+  const pick = ml => {
+    document.querySelectorAll('#vials .vial, #oud-opts .opt').forEach(el => el.setAttribute('aria-pressed', el.dataset.ml == ml));
+    osel.textContent = 'for ' + ml + ' ml';
+  };
+  document.querySelectorAll('#vials .vial, #oud-opts .opt').forEach(el => el.addEventListener('click', () => pick(el.dataset.ml)));
+
+  // 3D tilt on product art
+  if (!reduce) document.querySelectorAll('.art').forEach(art => {
+    art.addEventListener('pointermove', e => {
+      const r = art.getBoundingClientRect();
+      art.style.setProperty('--ry', ((e.clientX - r.left) / r.width - 0.5) * 14 + 'deg');
+      art.style.setProperty('--rx', -((e.clientY - r.top) / r.height - 0.5) * 10 + 'deg');
+    });
+    art.addEventListener('pointerleave', () => { art.style.setProperty('--rx', '0deg'); art.style.setProperty('--ry', '0deg'); });
+  });
+
+  // Order list
+  const KEY = 'majisty-order';
+  let order = [];
+  try { order = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { order = []; }
+  const cart = document.getElementById('cart'), empty = document.getElementById('cart-empty');
+  const copyBtn = document.getElementById('copy-order'), clearBtn = document.getElementById('clear-order');
+  const toast = document.getElementById('toast'), txt = document.getElementById('order-text');
+  const pill = document.getElementById('pill'), pillN = document.getElementById('pill-n');
+  const wa = document.getElementById('wa-order'), totalEl = document.getElementById('cart-total');
+  const totals = () => {
+    const priced = order.every(o => priceOf(o.key) != null);
+    return { priced, sum: order.reduce((a, o) => a + (priceOf(o.key) || 0) * o.qty, 0) };
+  };
+  const message = () => {
+    const lines = order.map(o => { const v = priceOf(o.key); return '- ' + o.qty + ' x ' + o.name + (v != null ? ' (' + fmt(v) + ' each)' : ''); });
+    const t = totals();
+    return 'Hello Majisty, I would like to order:\n' + lines.join('\n') + (order.length && t.priced ? '\nTotal: ' + fmt(t.sum) : '');
+  };
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(order)); } catch (e) {} }
+  function render() {
+    cart.innerHTML = '';
+    order.forEach((o, i) => {
+      const li = document.createElement('li');
+      li.innerHTML = '<span class="name"></span><span class="qty"><button aria-label="One less">\u2212</button><span></span><button aria-label="One more">+</button></span><button class="rm" aria-label="Remove">\u00d7</button>';
+      li.querySelector('.name').textContent = o.name;
+      const v = priceOf(o.key);
+      if (v != null) { const e = document.createElement('small'); e.className = 'each'; e.textContent = fmt(v) + ' each'; li.querySelector('.name').appendChild(e); }
+      li.querySelector('.qty span').textContent = o.qty;
+      const [minus, plus] = li.querySelectorAll('.qty button');
+      minus.onclick = () => { o.qty = Math.max(1, o.qty - 1); update(); };
+      plus.onclick = () => { o.qty += 1; update(); };
+      li.querySelector('.rm').onclick = () => { order.splice(i, 1); update(); };
+      cart.appendChild(li);
+    });
+    const n = order.reduce((a, o) => a + o.qty, 0);
+    empty.hidden = order.length > 0;
+    copyBtn.disabled = clearBtn.disabled = order.length === 0;
+    pill.hidden = n === 0; pillN.textContent = n;
+    txt.value = message();
+    if (!order.length) txt.hidden = true;
+    const t = totals();
+    totalEl.hidden = !(order.length && t.priced);
+    totalEl.innerHTML = '<span>Total</span><span>' + fmt(t.sum) + '</span>';
+    wa.hidden = !(MAJISTY.whatsapp && order.length);
+    wa.href = 'https://wa.me/' + MAJISTY.whatsapp + '?text=' + encodeURIComponent(message());
+  }
+  function update() { save(); render(); }
+  function add(name, key) {
+    const hit = order.find(o => o.name === name);
+    if (hit) hit.qty += 1; else order.push({ name, key, qty: 1 });
+    update();
+  }
+  document.querySelectorAll('.add').forEach(btn => btn.addEventListener('click', () => {
+    let name = btn.dataset.add, key = btn.dataset.key;
+    if (name === 'bukhoor') { key = selKey('bukhoor'); name = 'Bukhoor, ' + key.split(':')[1] + ' g'; }
+    if (name === 'oud') { key = selKey('oud'); name = 'Oud oil, ' + key.split(':')[1] + ' ml'; }
+    add(name, key);
+    btn.classList.add('done'); btn.textContent = 'Added';
+    clearTimeout(btn._t); btn._t = setTimeout(() => { btn.classList.remove('done'); btn.textContent = 'Add to order'; }, 1400);
+  }));
+  copyBtn.addEventListener('click', () => {
+    const show = msg => { toast.textContent = msg; clearTimeout(toast._t); toast._t = setTimeout(() => toast.textContent = '', 2600); };
+    const fallback = () => { txt.hidden = false; txt.focus(); txt.select(); show('Select the text below and copy it'); };
+    try {
+      navigator.clipboard.writeText(message()).then(() => show('Copied. Paste it into WhatsApp.'), fallback);
+    } catch (e) { fallback(); }
+  });
+  clearBtn.addEventListener('click', () => { order = []; update(); });
+  render();
+  refreshPrices();
+})();
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canvas = document.getElementById('gl');
+const stage = canvas.parentElement;
+
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' }); }
+catch (err) { window.majistyNoGL(); throw err; }
+window.__majistyGL = true;
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+const scene = new THREE.Scene();
+const BG = new THREE.Color('#140e0b');
+scene.fog = new THREE.Fog(BG, 9, 22);
+
+// Vignette background
+{
+  const c = document.createElement('canvas'); c.width = c.height = 512;
+  const g = c.getContext('2d');
+  const grd = g.createRadialGradient(256, 210, 20, 256, 256, 360);
+  grd.addColorStop(0, '#3a2519'); grd.addColorStop(0.45, '#1d1410'); grd.addColorStop(1, '#0b0807');
+  g.fillStyle = grd; g.fillRect(0, 0, 512, 512);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+  scene.background = t;
+}
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 60);
+
+// ---------- Seeded random ----------
+let seed = 11;
+const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+
+// ---------- Al Sadu woven texture ----------
+const SADU = { r: '#9b1c24', c: '#e8dcc2', k: '#1c1614', g: '#1f4a36' };
+function saduColor(x, y, W, H) {
+  const fy = y / H;
+  if (fy < 0.07) return ['c', 'k', 'r', 'r', 'c', 'g'][y % 6];
+  if (fy < 0.34) {
+    const band = Math.floor(y / 2) % 7;
+    const base = ['r', 'r', 'c', 'k', 'g', 'k', 'c'][band];
+    // a chain of small diamonds on the red rows
+    if (base === 'r') { const d = Math.abs(((x % 10) - 5)) + Math.abs((y % 4) - 2); if (d < 2) return 'c'; }
+    return base;
+  }
+  if (fy < 0.37) return ['k', 'c', 'k'][y % 3];
+  if (fy > 0.93) return ['k', 'c', 'r', 'r', 'g', 'c'][y % 6];
+  const pw = W / 3, lx = x % pw;
+  const div = ['k', 'c', 'g', 'g', 'c', 'k', 'r', 'k'];
+  if (lx < div.length) return div[Math.floor(lx)];
+  // zigzag column
+  const period = 14, amp = pw * 0.2;
+  const ph = (y % period) / period, tri = ph < 0.5 ? ph * 2 : 2 - ph * 2;
+  const cx = pw / 2 + 4 + (tri - 0.5) * 2 * amp;
+  const d = Math.abs(lx - cx);
+  if (d < 2.2) return 'c';
+  if (d < 3.6) return 'k';
+  if (d < 4.6) return 'g';
+  // small cream ticks on the field
+  if ((Math.floor(y / 7) % 2 === 0) && Math.abs(lx - (pw * 0.18 + 8)) < 1) return 'c';
+  if ((Math.floor(y / 7) % 2 === 1) && Math.abs(lx - (pw * 0.82)) < 1) return 'c';
+  return 'r';
+}
+function makeSadu() {
+  const W = 2048, H = 1024, CW = 168, CH = 104;
+  const col = document.createElement('canvas'); col.width = W; col.height = H;
+  const bmp = document.createElement('canvas'); bmp.width = W; bmp.height = H;
+  const a = col.getContext('2d'), b = bmp.getContext('2d');
+  a.fillStyle = '#0d0907'; a.fillRect(0, 0, W, H);
+  b.fillStyle = '#000'; b.fillRect(0, 0, W, H);
+  const cw = W / CW, ch = H / CH;
+  const shade = (hex, k) => { const c = new THREE.Color(hex); c.multiplyScalar(k); return '#' + c.getHexString(); };
+  for (let j = 0; j < CH; j++) for (let i = 0; i < CW; i++) {
+    const key = saduColor(i, j, CW, CH);
+    const k = 0.86 + rand() * 0.24;
+    const cx = (i + 0.5) * cw, cy = (j + 0.5) * ch;
+    // each stitch is a slanted loop
+    a.fillStyle = shade(SADU[key], k);
+    a.beginPath(); a.ellipse(cx, cy, cw * 0.47, ch * 0.62, 0.5, 0, Math.PI * 2); a.fill();
+    a.fillStyle = 'rgba(255,255,255,0.10)';
+    a.beginPath(); a.ellipse(cx - cw * 0.1, cy - ch * 0.12, cw * 0.18, ch * 0.24, 0.5, 0, Math.PI * 2); a.fill();
+    const grd = b.createRadialGradient(cx, cy, 0, cx, cy, cw * 0.6);
+    grd.addColorStop(0, '#fff'); grd.addColorStop(1, '#222');
+    b.fillStyle = grd;
+    b.beginPath(); b.ellipse(cx, cy, cw * 0.47, ch * 0.62, 0.5, 0, Math.PI * 2); b.fill();
+  }
+  const map = new THREE.CanvasTexture(col); map.colorSpace = THREE.SRGBColorSpace;
+  const bump = new THREE.CanvasTexture(bmp);
+  const aniso = renderer.capabilities.getMaxAnisotropy();
+  map.anisotropy = bump.anisotropy = Math.min(8, aniso);
+  return { map, bump };
+}
+function makeEngraving() {
+  const c = document.createElement('canvas'); c.width = 1024; c.height = 256;
+  const g = c.getContext('2d');
+  g.fillStyle = '#808080'; g.fillRect(0, 0, 1024, 256);
+  g.strokeStyle = '#d8d8d8'; g.lineWidth = 6;
+  for (let y of [28, 228]) { g.beginPath(); g.moveTo(0, y); g.lineTo(1024, y); g.stroke(); }
+  g.lineWidth = 7;
+  for (let i = 0; i < 8; i++) {
+    const x = i * 128 + 64;
+    g.beginPath(); g.moveTo(x - 40, 60); g.lineTo(x + 40, 196); g.moveTo(x + 40, 60); g.lineTo(x - 40, 196); g.stroke();
+    g.beginPath(); g.moveTo(x + 64, 70); g.lineTo(x + 84, 128); g.lineTo(x + 64, 186); g.lineTo(x + 44, 128); g.closePath(); g.stroke();
+  }
+  g.fillStyle = '#404040';
+  for (let i = 0; i < 64; i++) { g.beginPath(); g.arc(i * 16 + 8, 14, 3, 0, 7); g.arc(i * 16 + 8, 242, 3, 0, 7); g.fill(); }
+  const t = new THREE.CanvasTexture(c); t.wrapS = THREE.RepeatWrapping; return t;
+}
+
+// ---------- Geometry ----------
+const profile = new THREE.CatmullRomCurve3([
+  [0.52, 0.0], [0.84, 0.1], [0.98, 0.42], [1.0, 0.8], [0.94, 1.14], [0.74, 1.5],
+  [0.52, 1.86], [0.39, 2.2], [0.345, 2.5], [0.335, 2.72]
+].map(([r, y]) => new THREE.Vector3(r, y, 0)));
+const pts = profile.getSpacedPoints(140).map(p => new THREE.Vector2(p.x, p.y));
+const scaled = k => pts.map(p => new THREE.Vector2(p.x * k, p.y));
+
+const vessel = new THREE.Group(); scene.add(vessel);
+const sadu = makeSadu();
+const coverMat = new THREE.MeshStandardMaterial({ map: sadu.map, bumpMap: sadu.bump, bumpScale: 2.2, roughness: 0.92, metalness: 0, side: THREE.DoubleSide });
+const coverInner = new THREE.MeshStandardMaterial({ color: '#2b1c16', roughness: 1, side: THREE.BackSide });
+function makeWeave() {
+  const c = document.createElement('canvas'); c.width = c.height = 128;
+  const g = c.getContext('2d');
+  for (let y = 0; y < 8; y++) for (let x = 0; x < 8; x++) {
+    const twill = ((x + y) >> 1) % 2 === 0;
+    const grd = twill ? g.createLinearGradient(x * 16, 0, x * 16 + 16, 0) : g.createLinearGradient(0, y * 16, 0, y * 16 + 16);
+    grd.addColorStop(0, '#1b1a19'); grd.addColorStop(0.5, '#3a3734'); grd.addColorStop(1, '#1b1a19');
+    g.fillStyle = grd; g.fillRect(x * 16, y * 16, 16, 16);
+  }
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(14, 10);
+  return t;
+}
+const shellMat = new THREE.MeshPhysicalMaterial({ map: makeWeave(), roughness: 0.42, metalness: 0.1, clearcoat: 0.5, clearcoatRoughness: 0.25, side: THREE.DoubleSide });
+const goldMat = new THREE.MeshPhysicalMaterial({ color: '#d4a85a', metalness: 1, roughness: 0.28, clearcoat: 0.4, bumpMap: makeEngraving(), bumpScale: 1.6 });
+const goldPlain = new THREE.MeshStandardMaterial({ color: '#d4a85a', metalness: 1, roughness: 0.25 });
+
+function halves(points, matA, matB) {
+  const g = new THREE.Group(), list = [];
+  for (let h = 0; h < 2; h++) {
+    const geo = new THREE.LatheGeometry(points, 72, h * Math.PI, Math.PI);
+    const m = new THREE.Mesh(geo, matA); m.castShadow = true; m.receiveShadow = true;
+    const grp = new THREE.Group(); grp.add(m);
+    if (matB) { const inner = new THREE.Mesh(geo, matB); inner.scale.set(0.995, 1, 0.995); grp.add(inner); }
+    g.add(grp); list.push(grp);
+  }
+  return { g, list };
+}
+// Bottom discs so the halves look solid
+function bottomHalf(r, mat, h) {
+  const geo = new THREE.CircleGeometry(r, 48, h * Math.PI - Math.PI / 2, Math.PI);
+  const m = new THREE.Mesh(geo, mat); m.rotation.x = Math.PI / 2; m.position.y = 0.002; return m;
+}
+const cover = halves(pts, coverMat, coverInner);
+cover.list.forEach((grp, h) => grp.add(bottomHalf(0.52, coverMat, h)));
+const shell = halves(scaled(0.93), shellMat);
+shell.list.forEach((grp, h) => grp.add(bottomHalf(0.48, shellMat, h)));
+vessel.add(cover.g, shell.g);
+
+// Inner vial with oud chips
+const vial = new THREE.Group(); vessel.add(vial);
+const glass = new THREE.Mesh(new THREE.CylinderGeometry(0.27, 0.27, 1.25, 48, 1, true),
+  new THREE.MeshPhysicalMaterial({ color: '#ffffff', roughness: 0.06, metalness: 0, transmission: 1, thickness: 0.08, ior: 1.45, transparent: true, opacity: 0.55, side: THREE.DoubleSide }));
+glass.position.y = 1.05; vial.add(glass);
+const vialBase = new THREE.Mesh(new THREE.CylinderGeometry(0.27, 0.27, 0.04, 48), new THREE.MeshPhysicalMaterial({ color: '#cfd4d6', roughness: 0.1, transmission: 0.8, transparent: true, opacity: 0.6 }));
+vialBase.position.y = 0.43; vial.add(vialBase);
+const vialCap = new THREE.Mesh(new THREE.CylinderGeometry(0.285, 0.285, 0.14, 48), new THREE.MeshStandardMaterial({ color: '#b9bcbe', metalness: 1, roughness: 0.22 }));
+vialCap.position.y = 1.74; vialCap.castShadow = true; vial.add(vialCap);
+{
+  const N = 150;
+  const chipGeo = new THREE.DodecahedronGeometry(0.06, 0);
+  const chipMat = new THREE.MeshStandardMaterial({ color: '#5a3216', roughness: 0.75, metalness: 0.05 });
+  const chips = new THREE.InstancedMesh(chipGeo, chipMat, N);
+  const m = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler(), s = new THREE.Vector3(), p = new THREE.Vector3();
+  const col = new THREE.Color();
+  for (let i = 0; i < N; i++) {
+    const a = rand() * Math.PI * 2, r = Math.sqrt(rand()) * 0.2;
+    p.set(Math.cos(a) * r, 0.5 + (i / N) * 1.0 + rand() * 0.06, Math.sin(a) * r);
+    e.set(rand() * 6, rand() * 6, rand() * 6); q.setFromEuler(e);
+    s.set(0.6 + rand() * 0.7, 1.4 + rand() * 1.6, 0.5 + rand() * 0.5);
+    m.compose(p, q, s); chips.setMatrixAt(i, m);
+    chips.setColorAt(i, col.setHSL(0.07 + rand() * 0.02, 0.55, 0.16 + rand() * 0.14));
+  }
+  vial.add(chips);
+}
+
+// O-ring
+const ring = new THREE.Mesh(new THREE.TorusGeometry(0.335, 0.032, 20, 72), new THREE.MeshStandardMaterial({ color: '#141212', roughness: 0.55 }));
+ring.rotation.x = Math.PI / 2; ring.position.y = 2.7; vessel.add(ring);
+
+// Brass cap, loop and lanyard
+const cap = new THREE.Group(); vessel.add(cap);
+{
+  const capPts = [[0.0, 2.66], [0.37, 2.66], [0.4, 2.7], [0.4, 2.78], [0.385, 2.8], [0.385, 3.12], [0.4, 3.14], [0.4, 3.2], [0.34, 3.27],
+    [0.24, 3.33], [0.14, 3.37], [0.09, 3.39], [0.09, 3.42], [0.0, 3.43]].map(([r, y]) => new THREE.Vector2(r, y));
+  const capMesh = new THREE.Mesh(new THREE.LatheGeometry(capPts, 96), goldPlain);
+  capMesh.castShadow = true; cap.add(capMesh);
+  goldMat.bumpMap.repeat.set(3, 1);
+  const band = new THREE.Mesh(new THREE.CylinderGeometry(0.389, 0.389, 0.28, 128, 1, true), goldMat);
+  band.position.y = 2.96; cap.add(band);
+  for (const y of [2.81, 3.11]) {
+    const ridge = new THREE.Mesh(new THREE.TorusGeometry(0.39, 0.011, 10, 96), goldPlain);
+    ridge.rotation.x = Math.PI / 2; ridge.position.y = y; cap.add(ridge);
+  }
+  const loop = new THREE.Mesh(new THREE.TorusGeometry(0.1, 0.028, 18, 48), goldPlain);
+  loop.position.y = 3.52; loop.castShadow = true; cap.add(loop);
+  // braided lanyard
+  const cord = new THREE.CatmullRomCurve3([
+    new THREE.Vector3(0.06, 3.47, 0.0), new THREE.Vector3(0.3, 3.5, 0.12), new THREE.Vector3(0.55, 3.2, 0.24),
+    new THREE.Vector3(0.66, 2.7, 0.3), new THREE.Vector3(0.7, 2.25, 0.33), new THREE.Vector3(0.71, 2.0, 0.34)]);
+  // braid: slanted strands in red, cream and green
+  const cc = document.createElement('canvas'); cc.width = 64; cc.height = 64;
+  const cg = cc.getContext('2d');
+  const strand = ['#9b1c24', '#9b1c24', '#6e1218', '#1f4a36', '#9b1c24', '#9b1c24', '#e8dcc2', '#1c1614'];
+  for (let i = -8; i < 16; i++) {
+    cg.fillStyle = strand[(i + 8) % strand.length];
+    cg.beginPath(); cg.moveTo(i * 8, 0); cg.lineTo(i * 8 + 8, 0); cg.lineTo(i * 8 + 40, 64); cg.lineTo(i * 8 + 32, 64); cg.fill();
+  }
+  cg.strokeStyle = 'rgba(0,0,0,.35)'; cg.lineWidth = 1;
+  for (let i = -8; i < 16; i++) { cg.beginPath(); cg.moveTo(i * 8, 0); cg.lineTo(i * 8 + 32, 64); cg.stroke(); }
+  const ct = new THREE.CanvasTexture(cc); ct.colorSpace = THREE.SRGBColorSpace; ct.wrapS = ct.wrapT = THREE.RepeatWrapping; ct.repeat.set(36, 1);
+  const cordMesh = new THREE.Mesh(new THREE.TubeGeometry(cord, 120, 0.03, 12), new THREE.MeshStandardMaterial({ map: ct, roughness: 0.85 }));
+  cordMesh.castShadow = true; cap.add(cordMesh);
+  const tassel = new THREE.Group(); tassel.position.set(0.71, 2.0, 0.34); cap.add(tassel);
+  const knot = new THREE.Mesh(new THREE.SphereGeometry(0.05, 20, 16), new THREE.MeshStandardMaterial({ color: '#16120f', roughness: 0.8 }));
+  tassel.add(knot);
+  const wrap = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.042, 0.06, 20), new THREE.MeshStandardMaterial({ color: '#1f4a36', roughness: 0.9 }));
+  wrap.position.y = -0.07; tassel.add(wrap);
+  const strandGeo = new THREE.CylinderGeometry(0.009, 0.007, 0.36, 5);
+  const strandMat = new THREE.MeshStandardMaterial({ color: '#8e1820', roughness: 0.95 });
+  for (let i = 0; i < 18; i++) {
+    const a = i / 18 * Math.PI * 2, r = 0.022 + (i % 3) * 0.008;
+    const st = new THREE.Mesh(strandGeo, strandMat);
+    st.position.set(Math.cos(a) * r, -0.27, Math.sin(a) * r);
+    st.rotation.set(Math.sin(a) * 0.14, 0, -Math.cos(a) * 0.14);
+    st.castShadow = i % 3 === 0; tassel.add(st);
+  }
+  cap.userData.tassel = tassel;
+}
+
+// Floor + contact shadow
+const floor = new THREE.Mesh(new THREE.CircleGeometry(14, 64), new THREE.MeshStandardMaterial({ color: '#1a120e', roughness: 0.85, metalness: 0 }));
+floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
+
+// ---------- Lights ----------
+scene.add(new THREE.HemisphereLight('#ffe7c4', '#120b08', 0.18));
+const key = new THREE.DirectionalLight('#ffd9a6', 2.3);
+key.position.set(3.2, 6, 4); key.castShadow = true;
+key.shadow.mapSize.set(2048, 2048); key.shadow.bias = -0.0004; key.shadow.normalBias = 0.02;
+Object.assign(key.shadow.camera, { left: -3, right: 3, top: 5, bottom: -1, near: 1, far: 16 });
+scene.add(key);
+const fill = new THREE.DirectionalLight('#8fb0c8', 0.45); fill.position.set(-4, 2.5, 3); scene.add(fill);
+const rim = new THREE.SpotLight('#ffb36b', 32, 14, 0.6, 0.6); rim.position.set(-1.5, 4.2, -4.5); rim.target.position.set(0, 1.6, 0); scene.add(rim, rim.target);
+const rim2 = new THREE.PointLight('#c95f3a', 6, 8); rim2.position.set(2.6, 1.2, -2.8); scene.add(rim2);
+
+// ---------- Smoke embers (rising gold dust) ----------
+const EMB = 150;
+const embGeo = new THREE.BufferGeometry();
+const embBase = new Float32Array(EMB * 4);
+for (let i = 0; i < EMB; i++) { embBase[i * 4] = (rand() - 0.5) * 9; embBase[i * 4 + 1] = rand() * 6; embBase[i * 4 + 2] = (rand() - 0.5) * 6 - 1.5; embBase[i * 4 + 3] = 0.08 + rand() * 0.18; }
+embGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(EMB * 3), 3));
+const embers = new THREE.Points(embGeo, new THREE.PointsMaterial({ color: '#ffcf86', size: 0.028, transparent: true, opacity: 0.85, depthWrite: false, blending: THREE.AdditiveBlending }));
+scene.add(embers);
+
+// ---------- Post ----------
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+const bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.32, 0.45, 0.93);
+composer.addPass(bloom);
+composer.addPass(new OutputPass());
+
+function resize() {
+  const w = stage.clientWidth, h = stage.clientHeight;
+  renderer.setSize(w, h, false); composer.setSize(w, h); bloom.setSize(w, h);
+  camera.aspect = w / h; camera.updateProjectionMatrix();
+}
+addEventListener('resize', resize); resize();
+
+// ---------- Scroll + pointer ----------
+const journey = document.getElementById('journey');
+const panels = [...document.querySelectorAll('.panel')];
+const tags = Object.fromEntries([...document.querySelectorAll('.tag')].map(t => [t.dataset.part, t]));
+const cue = document.getElementById('cue');
+const railItems = [...document.querySelectorAll('#rail li')];
+let progress = 0, ptrX = 0, ptrY = 0;
+function readScroll() {
+  const r = journey.getBoundingClientRect();
+  const total = r.height - innerHeight;
+  progress = THREE.MathUtils.clamp(-r.top / total, 0, 1);
+  panels.forEach(p => p.classList.toggle('off', !(progress >= +p.dataset.from && progress < +p.dataset.to)));
+  cue.style.opacity = progress < 0.04 ? 1 : 0;
+}
+addEventListener('scroll', readScroll, { passive: true }); readScroll();
+addEventListener('pointermove', e => { ptrX = e.clientX / innerWidth * 2 - 1; ptrY = e.clientY / innerHeight * 2 - 1; });
+
+const ease = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const easeOutBack = t => { const c1 = 1.5, c3 = c1 + 1; return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2); };
+const seg = (p, a, b) => THREE.MathUtils.clamp((p - a) / (b - a), 0, 1);
+
+// ---------- Animate ----------
+const clock = new THREE.Clock();
+let elapsed = 0, sp = 0, spin = 0, px = 0, py = 0, running = true;
+const v = new THREE.Vector3();
+const narrow = () => innerWidth < 760;
+
+function place(tag, x, y, z, side, show) {
+  v.set(x, y, z).applyMatrix4(vessel.matrixWorld).project(camera);
+  const sx = (v.x * 0.5 + 0.5) * stage.clientWidth, sy = (-v.y * 0.5 + 0.5) * stage.clientHeight;
+  const w = tag.offsetWidth, W = stage.clientWidth;
+  const tx = THREE.MathUtils.clamp(side > 0 ? sx - 4 : sx - w + 4, 8, W - w - 8);
+  tag.style.transform = `translate(${tx}px, ${sy - tag.offsetHeight / 2}px)`;
+  tag.style.flexDirection = side > 0 ? 'row' : 'row-reverse';
+  tag.style.textAlign = side > 0 ? 'left' : 'right';
+  tag.style.opacity = show;
+}
+
+renderer.setAnimationLoop(() => {
+  if (!running) return;
+  const dt = Math.min(clock.getDelta(), 1 / 30);
+  elapsed += reduceMotion ? 0 : dt;
+  sp = THREE.MathUtils.damp(sp, progress, 6, dt);
+  px = THREE.MathUtils.damp(px, ptrX, 3, dt); py = THREE.MathUtils.damp(py, ptrY, 3, dt);
+
+  // explode phases: cap lifts first, cover opens, then shell
+  const eCap = ease(seg(sp, 0.14, 0.32));
+  const eCov = easeOutBack(seg(sp, 0.24, 0.46));
+  const eShell = ease(seg(sp, 0.4, 0.58));
+  const eVial = ease(seg(sp, 0.5, 0.66));
+  const back = ease(seg(sp, 0.83, 0.96));            // gently close up for the range panel
+  const ex = Math.max(eCap, 0) * (1 - back);
+
+  // idle turn while closed; face the split toward camera while open
+  const openness = Math.max(eCov, eCap) * (1 - back);
+  spin += dt * (reduceMotion ? 0 : 0.35) * (1 - openness);
+  const idle = spin + Math.sin(elapsed * 0.7) * 0.08;
+  vessel.rotation.y = THREE.MathUtils.lerp(idle, -0.35 + px * 0.25, openness);
+  vessel.rotation.x = py * 0.05 * (1 - openness);
+  vessel.position.y = Math.sin(elapsed * 1.1) * 0.03 + 0.02 * Math.sin(elapsed * 2.3 + 1);
+
+  // Parts
+  cap.position.y = 0.95 * ex + Math.sin(elapsed * 1.6 + 0.5) * 0.02 * ex;
+  cap.rotation.y = -0.6 * ex;
+  cap.userData.tassel.rotation.z = Math.sin(elapsed * 1.3) * 0.12 + 0.15 * ex;
+  ring.position.y = 2.7 + 0.55 * ex + Math.sin(elapsed * 2 + 1.7) * 0.012 * ex;
+  const cOpen = eCov * (1 - back), sOpen = eShell * (1 - back), vUp = eVial * (1 - back);
+  cover.list[0].position.x = 1.25 * cOpen; cover.list[1].position.x = -1.25 * cOpen;
+  cover.list[0].rotation.z = -0.1 * cOpen; cover.list[1].rotation.z = 0.1 * cOpen;
+  cover.list[0].position.y = cover.list[1].position.y = 0.05 * cOpen;
+  shell.list[0].position.x = 0.62 * sOpen; shell.list[1].position.x = -0.62 * sOpen;
+  shell.list[0].position.z = shell.list[1].position.z = -0.05 * sOpen;
+  vial.position.y = 0.32 * vUp + Math.sin(elapsed * 1.4 + 2.2) * 0.02 * vUp;
+  vial.rotation.y = elapsed * 0.4 * vUp;
+
+  // Camera: hero framing with bottle right of text, dolly in while open, recentred on narrow screens
+  const n = narrow();
+  const camDist = (n ? 10.2 : 7.6) + (n ? 3.2 : 2.3) * openness;
+  const offX = n ? 0 : -1.25 + 0.15 * openness;
+  const lookY = (n ? 1.15 : 1.75) + 0.45 * openness;
+  const orbit = Math.sin(elapsed * 0.15) * 0.06 + px * 0.08;
+  camera.position.set(offX + Math.sin(orbit) * camDist, lookY + 0.55 - py * 0.15 + Math.sin(elapsed * 0.4) * 0.03, Math.cos(orbit) * camDist);
+  camera.lookAt(offX, lookY, 0);
+
+  // Embers drift upward like bukhoor smoke
+  const pos = embGeo.attributes.position.array;
+  for (let i = 0; i < EMB; i++) {
+    const b = i * 4, sp2 = embBase[b + 3];
+    const y = (embBase[b + 1] + elapsed * sp2) % 6;
+    pos[i * 3] = embBase[b] + Math.sin(elapsed * 0.3 + i) * 0.25;
+    pos[i * 3 + 1] = y;
+    pos[i * 3 + 2] = embBase[b + 2] + Math.cos(elapsed * 0.25 + i * 1.7) * 0.2;
+  }
+  embGeo.attributes.position.needsUpdate = true;
+
+  vessel.updateMatrixWorld();
+  // Labels (projected anchors, local to vessel)
+  const lab = seg(openness, 0.75, 1);
+  const vl = seg(eVial * (1 - back), 0.6, 1);
+  const L = n ? 0.6 : 1;
+  place(tags.cap, 0.42, 2.95 + 0.95 * ex, 0, 1, lab);
+  place(tags.ring, -0.38, 2.7 + 0.55 * ex, 0, -1, lab);
+  place(tags.cover, 1.25 * cOpen + 0.75 * L, 1.0, 0, 1, lab);
+  place(tags.shell, -0.62 * sOpen - 0.9 * L, 1.6, 0, -1, seg(sOpen, 0.7, 1));
+  place(tags.vial, 0.28, 1.15 + 0.32 * vUp, 0, n ? 1 : -1, vl * (n ? 0 : 1));
+
+  const parts = [ex, ex, cOpen, sOpen, vUp];
+  railItems.forEach((li, i) => li.classList.toggle('on', parts[i] > 0.5));
+
+  composer.render();
+});
+
+// Only render while the stage is visible or the tab is open
+const io = new IntersectionObserver(([e]) => { running = e.isIntersecting; if (running) clock.getDelta(); });
+io.observe(stage);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) clock.getDelta(); });
+</script>
+
+</body>
+</html>
