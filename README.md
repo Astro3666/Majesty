@@ -1,6 +1,6 @@
-# Majisty
+# Majesty
 
-Website for **Majisty**, an Omani fragrance house. *Three Cultures. One Journey.*
+Website for **Majesty**, an Omani fragrance house. *Three Cultures. One Journey.*
 
 The page opens with a 3D model of the Journey oud vessel (Al Sadu woven cover, brass cap, O-ring seal, composite shell, sealed vial of oud chips) that comes apart layer by layer as you scroll. After that come the product ranges:
 
@@ -16,7 +16,7 @@ Visitors add products to an order list, then send it on WhatsApp or copy it as a
 Open `index.html` and find the block marked `EDIT HERE` near the bottom. It looks like this:
 
 ```js
-const MAJISTY = {
+const MAJESTY = {
   prices: {
     bukhoor: { 50: null, 100: null, 200: null, 400: null },
     frankincense: { male: null, female: null },
@@ -36,7 +36,7 @@ const MAJISTY = {
 
 1. Go to **Settings → Pages** in this repository.
 2. Under *Build and deployment*, pick **Deploy from a branch**, then choose `main` and `/ (root)`.
-3. After a minute the site goes live at `https://<your-username>.github.io/Majisty/`.
+3. After a minute the site goes live at `https://astro3666.github.io/Majesty/`.
 
 ## Files
 
@@ -51,4 +51,4 @@ To preview it on your own computer, open `index.html` in a browser, or run `pyth
 
 ## Copyright
 
-© 2026 Majisty. All rights reserved. This code is public so the site can be hosted, but it is **not** open source. The design, code, text, branding and photos may not be copied or reused without written permission. See [LICENSE](LICENSE).
+© 2026 Majesty. All rights reserved. This code is public so the site can be hosted, but it is **not** open source. The design, code, text, branding and photos may not be copied or reused without written permission. See [LICENSE](LICENSE).
