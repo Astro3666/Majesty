@@ -48,3 +48,7 @@ const MAJISTY = {
 | `.nojekyll` | Tells GitHub Pages to serve the files exactly as they are |
 
 To preview it on your own computer, open `index.html` in a browser, or run `python3 -m http.server` in this folder and visit http://localhost:8000.
+
+## Copyright
+
+© 2026 Majisty. All rights reserved. This code is public so the site can be hosted, but it is **not** open source. The design, code, text, branding and photos may not be copied or reused without written permission. See [LICENSE](LICENSE).
