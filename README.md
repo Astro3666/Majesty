@@ -43,6 +43,7 @@ const MAJISTY = {
 | File | What it is |
 | --- | --- |
 | `index.html` | The whole site: layout, styles, the 3D scene (Three.js 0.160 loaded from jsDelivr) and the order list |
+| `assets/frankincense.jpg` | Frankincense gum photo used in the Frankincense section |
 | `assets/journey-vessel.jpg` | Product photo. It's used in the Flagship section and shown in place of the 3D scene if a browser can't run WebGL |
 | `.nojekyll` | Tells GitHub Pages to serve the files exactly as they are |
 

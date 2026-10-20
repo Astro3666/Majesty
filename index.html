@@ -149,6 +149,9 @@ section.room:nth-of-type(odd) .grade { background: var(--night-2); }
   box-shadow: inset -6px -8px 14px rgba(90,50,10,.45), 0 10px 20px rgba(0,0,0,.45); animation: drift 9s ease-in-out infinite; }
 @keyframes drift { 0%,100% { transform: translateY(0) rotate(var(--r)) } 50% { transform: translateY(-10px) rotate(calc(var(--r) + 6deg)) } }
 
+.resin-photo { display: block; width: min(440px, 100%); height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; margin: 0 auto 20px;
+  box-shadow: 0 0 0 10px var(--night-2), 0 0 0 11px var(--line), 0 40px 70px rgba(0,0,0,.6); animation: drift 12s ease-in-out infinite; --r: 0deg; }
+#frankincense .art { place-items: center; }
 /* Oud oils */
 .vials { display: flex; align-items: flex-end; justify-content: center; gap: clamp(18px, 4vw, 44px); height: 340px; padding-bottom: 40px; }
 .vial { background: none; border: 0; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 12px; color: var(--muted); font: 500 14px var(--body); font-variant-numeric: tabular-nums; transition: transform .5s cubic-bezier(.34,1.56,.64,1), color .3s; }
@@ -223,7 +226,7 @@ a.opt { text-decoration: none; display: inline-flex; align-items: center; }
 
 @media (prefers-reduced-motion: reduce) {
   .art { transition: none; transform: none; }
-  .smoke i, .tear, .cue::after { animation: none; }
+  .smoke i, .tear, .resin-photo, .cue::after { animation: none; }
   .panel, .tin, .vial { transition: none; }
 }
 </style>
@@ -312,7 +315,7 @@ a.opt { text-decoration: none; display: inline-flex; align-items: center; }
   <section class="room" id="frankincense">
     <div class="wrap room-grid">
       <div class="art" aria-hidden="true">
-        <div class="resin" id="resin"></div>
+        <img class="resin-photo" src="assets/frankincense.jpg" alt="" width="447" height="447">
       </div>
       <div>
         <p class="eyebrow">High-quality gum</p>
@@ -501,20 +504,6 @@ setTimeout(() => window.majistyNoGL(), 10000);
     wt.textContent = g + ' g'; bsel.textContent = 'for ' + g + ' g';
   }));
   tin.style.transform = 'scale(' + scale[100] + ')';
-
-  // Frankincense tears (seeded so every load matches)
-  let s = 7; const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
-  const resin = document.getElementById('resin');
-  for (let i = 0; i < 16; i++) {
-    const t = document.createElement('i'); t.className = 'tear';
-    const w = 34 + rnd() * 58;
-    t.style.width = w + 'px'; t.style.height = w * (0.75 + rnd() * 0.5) + 'px';
-    t.style.left = (6 + rnd() * 76) + '%'; t.style.top = (8 + rnd() * 70) + '%';
-    t.style.setProperty('--r', (rnd() * 80 - 40) + 'deg');
-    t.style.animationDelay = (-rnd() * 9) + 's'; t.style.animationDuration = (7 + rnd() * 5) + 's';
-    t.style.opacity = 0.75 + rnd() * 0.25;
-    resin.appendChild(t);
-  }
 
   // Oud vials drawn to volume
   const vials = document.getElementById('vials'), osel = document.getElementById('oud-sel');
